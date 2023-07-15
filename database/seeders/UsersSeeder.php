@@ -23,25 +23,25 @@ class UsersSeeder extends Seeder
         $admin->password = bcrypt('Admin910113*');
         $admin->save();
 
-        $role1 = new Role();
-        $role1->name = 'Admin';
-        $role1->save();
+        // $role1 = new Role();
+        // $role1->name = 'Admin';
+        // $role1->save();
         
-        $role2 = new Role();
-        $role2->name = 'Gestor';
-        $role2->save();
+        // $role2 = new Role();
+        // $role2->name = 'Gestor';
+        // $role2->save();
         
-        $role3 = new Role();
-        $role3->name = 'Normal';
-        $role3->save(); 
+        // $role3 = new Role();
+        // $role3->name = 'Normal';
+        // $role3->save(); 
 
-        $admin->roles()->attach([1,2,3]);
+        // $admin->roles()->attach([1,2,3]);
 
-        $admin->save();
+        // $admin->save();
 
-        $active = new ActiveUsers();
-        $active->active = true;
-        $active->user_id = $admin->id;
-        $active->save();
+        // $active = new ActiveUsers();
+        // $active->active = true;
+        // $active->user_id = $admin->id;
+        // $active->save();
     }
 }

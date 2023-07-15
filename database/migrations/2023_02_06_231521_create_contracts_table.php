@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('contracts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('enterprise_id')->nullable();
-            $table->foreign('enterprise_id')->references('id')->on('enterprises')->onDelete('set null');
+            $table->unsignedBigInteger('entity_id')->nullable();
+            $table->foreign('entity_id')->references('id')->on('entities')->onDelete('set null');
             $table->unsignedBigInteger('number');
             $table->unsignedBigInteger('type_id')->nullable();
             $table->foreign('type_id')->references('id')->on('types')->onDelete('set null');
-            $table->date('start_date')->nullable();
+            $table->date('init_date')->nullable();
             $table->date('end_date')->nullable();
 
             $table->timestamps();
