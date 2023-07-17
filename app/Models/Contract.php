@@ -11,16 +11,16 @@ class Contract extends Model
     protected $table = 'contracts';
     protected $fillable = [
         'id',
-        'enterprise_id',
+        'entity_id',
         'number',
         'type_id',
         'start_date',
         'end_date',
     ];
     
-    public function enterprise()
+    public function entity()
     {
-        return $this->belongsTo(Enterprise::class);
+        return $this->belongsTo(Entity::class);
     }
 
     public function type()

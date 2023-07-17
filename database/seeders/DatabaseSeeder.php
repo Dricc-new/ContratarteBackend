@@ -18,8 +18,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(UsersSeeder::class);
-        // $this->call(AttachmentTypesSeeder::class);
-        // $this->call(ContractSeeder::class);
+        $this->call(AttachmentTypesSeeder::class);
+        $this->call(ContractSeeder::class);
        
     }    
 }

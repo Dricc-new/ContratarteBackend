@@ -7,24 +7,14 @@ use Illuminate\Http\Request;
 
 class EntityController extends Controller
 {
-    function SearchOnModel($search, $model, $col = ['name'])
-    {
-        if ($search) {
-            $temp = $model;
-            foreach ($col as $value) {
-                $temp = $temp->orWhere($value, 'like', "%$search%");
-            }
-            return $temp;
-        }
-        return $model;
-    }
+
     /**
      * Display a listing of the resource.
      */
     public function index(Request $request)
     {
         $entity = Entity::with('contracts');
-        $entity = $this->SearchOnModel($request->search, $entity,['name','reeup','email']);
+        $entity = SearchOnModel($request->search, $entity,['name','reeup','email']);
          
         if($request->exists('orderBy')){
             foreach ($request->orderBy as $value) {
@@ -53,8 +43,8 @@ class EntityController extends Controller
         $entity->name = $request->name;
         $entity->email = $request->email;
         $entity->save();
-
-        return ['entity' => $entity, 'notify' => ['success' => 'La entidad fue creada con exito']];
+        $notify = ['success' => 'La entidad fue creada con exito'];
+        return compact('entity','notify');
     }
 
     /**
@@ -76,7 +66,8 @@ class EntityController extends Controller
 
         $input = $request->all();
         $entity->update($input);
-        return $entity;
+        $notify = ['success' => 'La entidad fue actualizada con exito'];
+        return compact('entity','notify');
     }
 
     /**

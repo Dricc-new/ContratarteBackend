@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Attachment;
 use App\Models\Contract;
-use App\Models\Enterprise;
+use App\Models\Entity;
 use App\Models\Type;
 use Illuminate\Database\Seeder;
 
@@ -36,17 +36,17 @@ class ContractSeeder extends Seeder
         $type4->save();
         
         //dev
-        Enterprise::factory(50)->has(
-            Contract::factory()->count(4)->sequence(
-                ['type_id' => 1],
-                ['type_id' => 2],
-                ['type_id' => 3],
-                ['type_id' => 4],
-                )->has(Attachment::factory()->count(2)->sequence(
-                    ['attachmenttype_id' => 1 ], 
-                    ['attachmenttype_id' => 2 ],
-        )))
-        ->create();
+        // Entity::factory(50)->has(
+        //     Contract::factory()->count(4)->sequence(
+        //         ['type_id' => 1],
+        //         ['type_id' => 2],
+        //         ['type_id' => 3],
+        //         ['type_id' => 4],
+        //         )->has(Attachment::factory()->count(2)->sequence(
+        //             ['attachmenttype_id' => 1 ], 
+        //             ['attachmenttype_id' => 2 ],
+        // )))
+        // ->create();
         
     }
 }

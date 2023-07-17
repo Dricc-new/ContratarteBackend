@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContractController;
+use App\Http\Controllers\ContractTypeController;
 use App\Http\Controllers\EntityController;
 use App\Models\Entity;
 use Illuminate\Http\Request;
@@ -23,6 +24,7 @@ Route::get('/',function(){
 
 Route::apiResource('/entity', EntityController::class);
 Route::apiResource('/contract', ContractController::class);
+Route::apiResource('/contract-type', ContractTypeController::class);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

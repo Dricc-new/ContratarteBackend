@@ -20,7 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger('number');
             $table->unsignedBigInteger('type_id')->nullable();
             $table->foreign('type_id')->references('id')->on('types')->onDelete('set null');
-            $table->date('init_date')->nullable();
+            $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
 
             $table->timestamps();
